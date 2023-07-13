@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container3">
+    <h2>Document List</h2>
+    <ul class="document-list">
+        {% for doc in documents %}
+      <li class="dochide doc{{doc.status}}">
+        <div class="document-info">
+            
+            <a href="{% url 'document_detail' doc.Doc_id %}" class="document-link">
+           <span class="title">{{ doc.Nom }}</span>
+           </a>
+           <span class="status">{{ doc.status }}</span>
+        </div>
+        <a href="{% url 'delete' doc.Doc_id %}" style="text-decoration: none;">
+        <button class="delete-button" >Delete</button>
+    </a>
+      </li>
+      {% endfor %}
+      <!-- Repeat the above list item structure for each document -->
+    </ul>
+  </div>
+
+    {% endblock %}

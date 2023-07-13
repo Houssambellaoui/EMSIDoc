@@ -1,0 +1,475 @@
+{% load static %}
+<!DOCTYPE html>
+<html  lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <title>Nouvil</title>
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'plugins/jquery_datepacker/jquery_ui.css' %}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte_ar.min.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+      .containerrr {
+      max-width: 400px;
+      margin: 100px auto; /* Adjust the margin-top and margin-bottom values to position the div */
+      padding: 40px 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .form-group input[type="file"] {
+            padding: 10px 0;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+    .container3 {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .document-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .document-list li {
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .document-list li .title {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .document-list li .status {
+      color: #888;
+    }
+
+    .document-list li .delete-button {
+      background-color: #ff5757;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .document-list li .delete-button:hover {
+      background-color: #ff0000;
+    }
+    .container4 {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .document-details {
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .document-details .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .document-details .file-link {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .document-details .sign-button,
+    .document-details .reject-button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .document-details .reject-button {
+      background-color: #f44336;
+    }
+    .document-info {
+    flex-grow: 1;
+}
+.document-list {
+    list-style: none;
+    padding: 0;
+}
+
+.document-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.document-info {
+    flex-grow: 1;
+}
+
+.title {
+    display: block;
+    font-weight: bold;
+}
+
+.status {
+    display: block;
+    color: gray;
+    font-style: italic;
+}
+
+.delete-button {
+    margin-left: 10px;
+}
+.container11 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .document-list11 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .document-details11 {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title11 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .file-link11 {
+            display: block;
+            color: #337ab7;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .sign-button11,
+        .reject-button11 {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .sign-button11 {
+            background-color: #5cb85c;
+        }
+
+        .reject-button11 {
+            background-color: #d9534f;
+        }
+
+        .document-info11 {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .document-info11 li {
+            margin-bottom: 10px;
+        }
+
+        .document-info11 li strong {
+            font-weight: bold;
+        }
+    </style>
+    
+    
+  </head>
+  <body dir="rtl" class="hold-transition sidebar-mini">
+    {% if request.session.USER %}
+        {% include 'parts/nav.html' %}
+        {% include 'parts/sidebar.html' %}
+      
+    {% block content %}
+
+    {% endblock %}
+    {% else %}
+    <div class="containerrr">
+      <a href="{% url 'login' %}" class="login-link">Login</a>
+    </div>
+    
+    
+    {% endif %}
+    {% include 'parts/footer.html' %}
+
+
+
+ </div>
+  <!-- ./wrapper -->
+
+
+
+    <!-- REQUIRED SCRIPTS -->
+<script src="{% static 'plugins/jquery_datepacker/jquery_ui.js' %}"></script>
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- OPTIONAL SCRIPTS -->
+
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<!--<script src="dist/js/pages/dashboard3.js'"></script>
+-->
+<script>
+  $(document).ready(function(){
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    });
+/*here i will make loop for get id category and status for contact with books */
+/*حساب اجمالي الارباح و هي عبارة عن حاصل جمع سعر الكتب عند البيع بالاضافة الى سعر استعارة الكتاب*/
+  });
+
+ 
+</script>
+<script>
+ 
+  
+
+
+$(function () {
+  'use strict'
+ 
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
+
+  var mode      = 'index'
+  var intersect = true
+
+  var $salesChart = $('#sales-chart')
+
+  var salesChart  = new Chart($salesChart, {
+
+    type   : 'bar',
+    
+    data   : {
+
+      labels  : [
+          
+
+        'تفاصيل الارباح',
+
+      ],
+
+
+      datasets: [
+        {
+          backgroundColor: '#007bff',
+          borderColor    : '#007bff',
+          data           : [ 
+               '50',
+          ]
+        },
+        {
+          backgroundColor: '#ced4da',
+          borderColor    : '#ced4da',
+          data           : [ 
+                '30',
+          ]
+        }
+      ]
+    },
+
+   
+   
+   options: {
+      maintainAspectRatio: false,
+      tooltips           : {
+        mode     : mode,
+        intersect: intersect
+      },
+      hover              : {
+        mode     : mode,
+        intersect: intersect
+      },
+      legend             : {
+        display: false
+      },
+      scales             : {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display      : true,
+            lineWidth    : '4px',
+            color        : 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks    : $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value, index, values) {
+              if (value >= 1000) {
+                value /= 1000
+                value += 'k'
+              }
+              return '$' + value
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display  : true,
+          gridLines: {
+            display: false
+          },
+          ticks    : ticksStyle
+        }]
+      }
+    }
+  });
+  
+ var pieChart = document.getElementById('visitors-chart').getContext('2d')
+
+  var myPieChart = new Chart(pieChart, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: ['35','25','40'],
+        backgroundColor :["#27c100","#f3545d","#fdaf4b"],
+        borderWidth: 10,
+        
+      }],
+      labels: ['Available', 'Sold', 'Rented'] 
+    },
+    options : {
+      responsive: true, 
+      maintainAspectRatio: false,
+      legend: {
+        position : 'bottom',
+        labels : {
+          fontColor: '#000',
+          fontSize: 15,
+          usePointStyle : true,
+          padding:30
+        }
+      },
+      pieceLabel: {
+        render: 'percentage',
+        fontColor: 'white',
+        fontSize: 14,
+      },
+
+
+    }
+  })
+
+})
+
+
+ 
+</script>
+
+<script>
+
+{% for doc in documents %}
+
+$(".status{{doc.status}}").click(function(){
+
+ $(".dochide").hide()
+ $(".doc{{doc.status}}").show()
+
+});
+{% endfor %}
+</script>
+
+</body>
+</html>

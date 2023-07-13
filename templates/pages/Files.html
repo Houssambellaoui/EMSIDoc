@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container11">
+      
+    <div class="document-details11">
+        <h2 class="title11">{{ Document.Nom }}</h2>
+        <a href="{{ Document.fichier.url }}" class="file-link11">View File</a>
+        <div class="buttons11">
+            <form  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+            <button type="submit" class="sign-button11" name="sign">Sign</button>
+            <button type="submit" class="reject-button11" name="reject">Reject</button>
+            </form>
+        </div>
+        <ul class="document-info11">
+            <li><strong>Document ID:</strong> {{ Document.Doc_id }}</li>
+            <li><strong>Type:</strong> {{ Document.get_type_display }}</li>
+            <li><strong>Proprietaire:</strong> {{ Document.proprietaire.cin }}</li>
+            <li><strong>Status:</strong> {{ Document.get_status_display }}</li>
+            <li><strong>Date Enregistrement:</strong> {{ Document.date_enregistrement }}</li>
+        </ul>
+    </div>
+
+</div>
+    {% endblock %}

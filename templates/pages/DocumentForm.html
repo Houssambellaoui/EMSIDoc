@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="form-container">
+       
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="id_Nom">Nom:</label>
+                <input type="text" id="id_Nom" name="Nom" required>
+            </div>
+            <div class="form-group">
+                <label for="id_type">Type:</label>
+                <select id="id_type" name="type" required>
+                    {% for choice in type_choix %}
+                        <option value="{{ choice }}">{{ choice }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_fichier">Fichier:</label>
+                <input type="file" id="id_fichier" name="fichier" required>
+            </div>
+
+           <!-- <div class="form-group">
+               <input type="submit" value="Sign">
+               
+            </div>-->
+            <div class="form-group">
+                
+                <input type="submit" value="Submit" name="submit" >
+                <button type="submit" name="sign" class="btn btn-primary">Sign</button>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+ <!-- Main Sidebar Container -->
+ <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    
+      <span class="brand-link brand-text font-weight-light">EMSI Docs</span>
+    
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+     
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+       
+        {% if Usertype == "citoyen" or  Usertype == "Fonctionnaire" %}
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          <li class="nav-header">حالة الملفات</li>
+          
+          <li style="cursor: pointer;" class="nav-item statusRejected">
+            <a id="statusSold" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">مرفوضة</p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item statusSigned">
+            <a id="" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>تم التوقيع</p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item statusPending">
+            <a id="" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>قيد الانتظار</p>
+            </a>
+          </li>
+          
+
+          
+          
+       
+
+        </ul>
+        {% endif %}
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

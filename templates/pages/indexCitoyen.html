@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="container3">
+        <h2>Document List</h2>
+        <div class="row m-1 mb-3">   
+            <a href="{% url 'docform' %}" class="btn btn-primary" >+ اضافة ملف</a>
+          </div>
+        <ul class="document-list">
+            {% for doc in documents %}
+          <li class="dochide doc{{doc.status}}">
+            <div class="document-info ">
+                
+                <a href=" {{doc.fichier.url}} " class="document-link">
+               <span class="title">{{ doc.Nom }}</span>
+               </a>
+               <span class="status">{{ doc.status }}</span>
+            </div>
+            <a href="{% url 'deleteC' doc.Doc_id %}" style="text-decoration: none;">
+            <button class="delete-button" >Delete</button>
+        </a>
+          </li>
+          {% endfor %}
+          <!-- Repeat the above list item structure for each document -->
+        </ul>
+      </div>
+    {% endblock %}

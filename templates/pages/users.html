@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+       
+          
+
+<div style="direction: rtl;" class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper p-5">
+    <!-- Content Header (Page header) -->
+
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>المستخدمين</h1>
+                
+              </div>
+
+            </div>
+           
+
+               <!-- form add books -->
+          <div class="row m-1 mb-3">   
+            <a href="#bookform" class="btn btn-primary" data-toggle="collapse">+ اضافة مستخدم</a>
+          </div>
+          
+          <div id="bookform" class="card card-primary collapse">
+            <div class="card-header">
+              <h3 class="card-title">اضافة كتاب</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="POST" enctype="multipart/form-data"  > 
+            {% csrf_token %}
+              <div class="card-body"> 
+               {{form}}
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">اضافة</button>
+              </div>
+            </form>
+          </div>
+  
+                <!-- /.card -->
+         
+            
+        </section>
+    
+        <!-- Main content -->
+        <section class="content">                  
+          <!-- Default box -->
+          <div class="card card-solid">
+            <div class="card-body pb-0">
+              <div class="row d-flex align-items-stretch">
+                <!-- بداية الكتاب -->
+                   {% for user in users %}
+                        {% include 'parts/usercard.html' %}
+                   {% endfor %}
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+    
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+    
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+{% endblock %}
